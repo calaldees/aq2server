@@ -14,7 +14,8 @@ services:
     restart: unless-stopped
     env_file:  # set server parameters in env_file
       - ./base.env
-      - ./teamplay.env
+      #- ./teamplay.env
+      - ./deathmatch.env
     volumes:  # mounts to allow access and persist files on host, you will need to set appropriate permissions
       - ./teamplay.motd:/aq2server/action/motd.txt:ro
       - maps:/aq2server/action/maps
