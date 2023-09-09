@@ -9,11 +9,12 @@ services:
     tty: true
     restart: unless-stopped
     env_file:  # set server parameters in env_file
-      - ./42h.env
+      - ./server.env
+      - ./teamplay.env
     environment:  # set your local timezone
       - TZ=Etc/UTC
     volumes:  # mounts to allow access and persist files on host, you will need to set appropriate permissions
-      - ./42h.motd:/aq2server/action/motd.txt:ro
+      - ./teamplay.motd:/aq2server/action/motd.txt:ro
       - maps:/aq2server/action/maps
       - logs:/aq2server/action/logs
       - demos:/aq2server/action/demos
