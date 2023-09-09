@@ -20,8 +20,10 @@ services:
       - maps:/aq2server/action/maps
       - logs:/aq2server/action/logs
       - demos:/aq2server/action/demos
+      - players:/aq2server/action/players
 
 volumes:
   maps:
   logs:
   demos:
+  players:
