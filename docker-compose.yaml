@@ -2,17 +2,19 @@ services:
   aq2_42h:
     container_name: aq2_42h
     image: aqtiongame/server:latest
-    ports:  # ports to map to host, cannot be in use and must correspond to same value as PORT variable in tp1.env
+      # https://github.com/actionquake/distrib/tree/main/server#step-by-step
+      # https://github.com/actionquake/serverconfigs/blob/main/docker/docker-compose.yaml
+    ports:
       - "27910:27910/udp"
       - "27910:27910/tcp"
     environment:
       PORT: 27910
       TZ: Etc/UTC
-      RCON_PASSWORD: ${RCON_PASSWORD:-bitch}
+      RCON_PASSWORD: ${RCON_PASSWORD:-pleaseupdateme}  # https://github.com/actionquake/serverconfigs/blob/f09f9baed0fada3649409f613d83c4185cb6763f/docker/aq2-entrypoint.sh#L27
     stdin_open: true
     tty: true
     restart: unless-stopped
-    env_file:  # set server parameters in env_file
+    env_file:
       - ./base.env
       #- ./teamplay.env
       - ./deathmatch.env
